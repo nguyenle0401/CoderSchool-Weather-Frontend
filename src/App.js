@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Switch, Route, useHistory, useParams } from "react-router-dom";
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
+import "./App.css";
 import { NavLink, Button } from "react-bootstrap";
 
 
@@ -164,9 +164,9 @@ function Weatherpage() {
               Feels like: {getInfo("current","feels_like")}°C
             </p>
             <h6>
-              <span>{getInfo3("current", "weather", "description")}</span>
-              <span>{getInfo3("current", "weather", "description")}</span>
-              <span>{getInfo3("current", "weather", "description")}</span>
+              <span>{getInfo3("current", "weather", "sunrise")}</span>
+              <span>{getInfo3("current", "weather", "sunset")}</span>
+              <span>{getInfo3("current", "weather", "uvi")}</span>
               <span>{getInfo3("current", "weather", "description")}</span>
               <span>{getInfo3("current", "weather", "description")}</span>
               <span></span>

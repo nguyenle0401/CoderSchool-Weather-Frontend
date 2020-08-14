@@ -79,7 +79,7 @@ function Weatherpage() {
       try {
         console.log("using useEffect on Weather Page");
         console.log(city);
-        const res = await fetch(`http://localhost:5000/?city=${city.current}`);
+        const res = await fetch(`https://sunny-weather.herokuapp.com/?city=${city.current}`);
         const data = await res.json();
         if (!res.ok) {
           throw new Error(data.error);

@@ -3,8 +3,7 @@ import { Switch, Route, useHistory, useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 import { NavLink, Button } from "react-bootstrap";
-
-
+import Moment from "react-moment";
 
 function App() {
   return (
@@ -57,13 +56,20 @@ function HomePage() {
               name="city"
               placeholder="Enter your place/city name"
             />
-            <Button variant="warning" type="submit" value="enter">
+            <Button
+              variant="warning"
+              className="clor-btn"
+              type="submit"
+              value="enter"
+            >
               Search
             </Button>
           </form>
         </div>
       </nav>
-      
+      <div className ="cay_du card-style" >
+        🌦
+      </div>
     </div>
   );
 }
@@ -79,7 +85,9 @@ function Weatherpage() {
       try {
         console.log("using useEffect on Weather Page");
         console.log(city);
-        const res = await fetch(`https://sunny-weather.herokuapp.com/?city=${city.current}`);
+        const res = await fetch(
+          `https://sunny-weather.herokuapp.com/?city=${city.current}`
+        );
         const data = await res.json();
         if (!res.ok) {
           throw new Error(data.error);
@@ -102,6 +110,11 @@ function Weatherpage() {
   const getInfo3 = (arg1, arg2, arg3) => {
     if (weatherData[arg1] && weatherData[arg1][arg2])
       return weatherData[arg1][arg2][0][arg3];
+    else return null;
+  };
+  const getInfo3_2 = (arg1, arg2, arg3) => {
+    if (weatherData[arg1] && weatherData[arg1][arg2])
+      return weatherData[arg1][arg2][arg3];
     else return null;
   };
   return (
@@ -144,31 +157,37 @@ function Weatherpage() {
               name="city"
               placeholder="Enter your place/city name"
             />
-            <Button variant="warning" type="submit" value="enter">
+            <Button
+              variant="warning"
+              className="clor-btn"
+              type="submit"
+              value="enter"
+            >
               Search
             </Button>
           </form>
         </div>
       </nav>
+
       <div className="card-style">
+        <span className="cay_du card-style-du">🌬 </span>
         <div className="card" style={{ width: "38rem" }}>
           <div className="card-body">
             <h5 className="card-title"> {weatherData.timezone}</h5>
-            <h6 className="card-subtitle mb-2">
-             {getInfo("current", "temp")}°C
+            <h6 className="card-subtitle mb-2 temp text-do">
+              {getInfo("current", "temp")}°C
             </h6>
             <h6 className="card-subtitle mb-2">
               <strong>{getInfo3("current", "weather", "description")}</strong>
             </h6>
-            <p className="card-text">
-              Feels like: {getInfo("current","feels_like")}°C
-            </p>
+            <h6 className="card-text">
+              Feels like: {getInfo("current", "feels_like")}°C
+            </h6>
             <h6>
-              <span>{getInfo3("current", "weather", "sunrise")}</span>
-              <span>{getInfo3("current", "weather", "sunset")}</span>
-              <span>{getInfo3("current", "weather", "uvi")}</span>
-              <span>{getInfo3("current", "weather", "description")}</span>
-              <span>{getInfo3("current", "weather", "description")}</span>
+              <h6>Humidity: {getInfo("current", "humidity")}%</h6>
+              {/* <span>{getInfo("current", "lon")}</span> */}
+              <h6>UVI: {getInfo("current", "uvi")}</h6>
+              <h6>Dew-point: {getInfo("current", "dew_point")}</h6>
               <span></span>
             </h6>
           </div>

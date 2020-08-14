@@ -1,9 +1,12 @@
 .color-nav {
   width: 100%;
   position: absolute;
+  background-color: rgba(3, 0, 0, 0.973) !important;
+}
+.clor-btn{
   background-image: -webkit-linear-gradient(
     0deg,
-    #690a5d 0%,
+    #b45afd 0%,
     #88f3ff 100%
   ) !important;
 }
@@ -11,7 +14,7 @@
   font-size: 30px;
   font-weight: bolder;
   text-align: center;
-  color: #fce304;
+  color: #88f3ff;
 }
 .icon {
   font-size: 40px;
@@ -30,7 +33,24 @@
   top:200px;
 }
 .card-title{
-  font-size: 50px;
+  font-size: 40px;
   font-weight: bolder;
-  color:blue;
+  color:rgb(0, 0, 15);
+}
+.cay_du{
+font-size: 200px;
+
+}
+.temp{
+  color:rgb(12, 12, 12);
+  font-size: 30px;
+}
+.text-do{
+  color: rgb(94, 151, 8);
+  font-weight: bolder;
+  font-size: 30px;
+}
+.button{
+  position: absolute;
+  top:600px;
 }
